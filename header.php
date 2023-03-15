@@ -6,18 +6,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+   
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> class="container">
+<body <?php body_class(); ?> >
 
     
     <?php wp_body_open(); ?>
 <header id="header"> 
-<div><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo" class="logo"></div><nav><?php 
- wp_nav_menu ( array (
- 'theme_location' => 'header-menu' ,
- 'menu_class' => 'header-menu', 
- ) ); ?> </nav>
+<div><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo" class="logo"></div>
+<div class="new_menu"><?php wp_nav_menu ( array ('theme_location' => 'header-menu' ,'menu_class' => 'header-menu', ) ); ?>
+<button id="btnmodal">CONTACT</button></div>
 
 </header>

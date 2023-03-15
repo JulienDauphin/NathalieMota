@@ -6,6 +6,17 @@ function custom_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'custom_styles' );
 
+function scripts_modal() {
+   wp_enqueue_script( 
+      'modal', 
+      get_template_directory_uri() . '/js/scripts.js', 
+      array( 'jquery' ), 
+      '1.0', 
+      true
+   ); }
+   add_action( 'wp_enqueue_scripts', 'scripts_modal' );
+
+
 // Ajouter la prise en charge des images mises en avant
 add_theme_support( 'post-thumbnails' );
 
@@ -22,3 +33,4 @@ function register_my_menus() {
     );
    }
    add_action( 'init', 'register_my_menus' );
+
