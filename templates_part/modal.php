@@ -2,9 +2,11 @@
 <div id="myModal" class="modal">
 
     <!-- Modal content -->
+    
     <div class="modal-content">
+
     <img src="<?php echo get_template_directory_uri(); ?>../images/contact.png" alt="contact" class="contact">
-    <span class="close">x</span>
+    
    <div class="formulaire"> 
     <form action="" method="get" class="form-example">
     <div class="form_center"><label for="nom">NOM</label>
@@ -21,5 +23,5 @@
 
 
     </div>
-  
+    <span class="close">x</span>
   </div>

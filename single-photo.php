@@ -1,7 +1,6 @@
 <?php
 /**
- * Template pour les articles
- **/
+ * Template pour les photos */
 
 get_header();
 
@@ -16,8 +15,9 @@ while ( have_posts() ) :
 	if ( comments_open() || get_comments_number() ) {
 		comments_template();
 	}
-
 	
 endwhile; // Fin de la boucle
+
+
 
 get_footer();
