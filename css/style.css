@@ -42,6 +42,31 @@
 	list-style-type:none;
 }
 
+/* HERO */
+
+.thumbnail-accueil {
+    margin: auto;
+}
+
+.produkt {
+    width: 1440px;
+    height: 996px;
+}
+
+/* ACCUEIL */
+
+.container_thumbnail_block {
+    margin: 50px 144px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container_thumbnail_block img {
+    width: 560px;
+    height: 560px;
+}
+
 .footer-menu {
 	display: flex;
 }
