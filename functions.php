@@ -34,3 +34,9 @@ function register_my_menus() {
    }
    add_action( 'init', 'register_my_menus' );
 
+  
+   add_theme_support( 'post-thumbnails' );
+   
+   // Définir la taille des images mises en avant
+   set_post_thumbnail_size( 564, 845, true );
+   

@@ -9,7 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-   
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var reference = "<?php echo get_post_meta(get_the_ID(), 'reference', true);?>";
+    if (reference !== null) {
+      $("#ref").val(reference);
+    }
+  });
+   window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }}
+</script>
+
     <?php wp_head(); ?>
 </head>
 
@@ -20,6 +33,6 @@
 <header id="header"> 
 <div><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo" class="logo"></div>
 <div class="new_menu"><?php wp_nav_menu ( array ('theme_location' => 'header-menu' ,'menu_class' => 'header-menu', ) ); ?>
-<button id="btnmodal">CONTACT</button></div>
+<button id="btnmodal" class="bouton_menu">CONTACT</button></div>
 
 </header>

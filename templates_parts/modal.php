@@ -14,7 +14,7 @@
     <div class="form_center"><label for="email">E-MAIL</label>
     <input type="email" name="email" id="email" required></div>
     <div class="form_center"><label for="ref">RÉF. PHOTO</label>
-    <input type="text" name="ref" id="ref" required></div>
+    <input type="text" name="ref" id="ref"></div>
     <div class="form_center"><label for="message">MESSAGE</label>
     <input type="message" name="message" id="message" required></div>
     <div class="form_center"><input type="submit" value="Envoyer"></div>

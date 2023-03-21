@@ -16,4 +16,5 @@ while ( have_posts() ) :
 	}
 endwhile; // Fin de la boucle
 
+
 get_footer();
