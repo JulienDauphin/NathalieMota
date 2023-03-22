@@ -59,12 +59,30 @@
     margin: 50px 144px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#load-more {
+    padding: 8px 15px 8px 16px;
+    background-color: #d8d8d8;
+    color: black;
+    margin-bottom: 67px;
+    font-family: 'Space Mono', monospace;
+    Font-size: 12px;
+    Line-height: 18px;
+    border-radius: 2px;
 }
 
 .container_thumbnail_block img {
-    width: 560px;
-    height: 560px;
+    object-fit: cover;
+    width: 540px;
+    height: 475px;
 }
 
 .footer-menu {

@@ -1,12 +1,15 @@
-
 <?php
       // On place les critères de la requête dans un Array
         $args = array(
           'post_type' => 'photo',
           'posts_per_page' => 8,
+          'orderby' => 'date',
+          'order' => 'DESC',
+          'paged' => 1,
           
         );
         //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
+        
         $query = new WP_Query($args);
         ?>
         <!-- //On vérifie si le résultat de la requête contient des articles -->
@@ -25,9 +28,15 @@
                 <?php endif; ?>
               </div>
             <?php endwhile; ?>
+           
           </div>
         <?php else: ?>
           <p>Désolé, aucun article ne correspond à cette requête</p>
         <?php endif;
         wp_reset_query();
         ?>
+<div class="btn__wrapper">
+  <a href="#!" class="btn btn__primary" id="load-more">Charger plus</a>
+</div>
+
+       

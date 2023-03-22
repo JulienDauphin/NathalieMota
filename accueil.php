@@ -4,7 +4,7 @@
 */
 get_header(); ?>
 	
-<div class="hero">
+<div class="hero" >
   
 <?php
       // On place les critères de la requête dans un Array
@@ -17,8 +17,13 @@ get_header(); ?>
         //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
         $query = new WP_Query($args);
         ?>
+        <main
+			class="posts-list"
+			data-page="<?= get_query_var('paged') ? get_query_var('paged') : 1; ?>"
+			data-max="<?= $wp_query->max_num_pages; ?>"
+		>
         <!-- //On vérifie si le résultat de la requête contient des articles -->
-        <?php if ($query->have_posts()): ?>
+       <?php if ($query->have_posts()): ?>
           <div class="container_thumbnail_accueil">
             <!-- //On parcourt chacun des articles résultant de la requête -->
             <?php while ($query->have_posts()): ?>
@@ -43,11 +48,14 @@ echo '<div class="produkt" style="background: url('. $url.'); background-size: c
 </div>
 
 
-
     <div class="content">
     <?php the_content(); ?>
+    <?php wp_dropdown_categories( 'hide_empty=0' ); ?>
+
     </div> 
     <?php 
+
 // Le haut de l'interface est ajouté avant le contenu
 include 'templates_parts/photo_block.php'; ?>
+
 	<?php get_footer(); ?>
