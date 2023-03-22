@@ -25,6 +25,7 @@ get_header(); ?>
         <!-- //On vérifie si le résultat de la requête contient des articles -->
        <?php if ($query->have_posts()): ?>
           <div class="container_thumbnail_accueil">
+            <div id="resultats"></div>
             <!-- //On parcourt chacun des articles résultant de la requête -->
             <?php while ($query->have_posts()): ?>
               <?php $query->the_post(); ?>
@@ -48,14 +49,10 @@ echo '<div class="produkt" style="background: url('. $url.'); background-size: c
 </div>
 
 
-    <div class="content">
-    <?php the_content(); ?>
-    <?php wp_dropdown_categories( 'hide_empty=0' ); ?>
-
-    </div> 
     <?php 
 
 // Le haut de l'interface est ajouté avant le contenu
 include 'templates_parts/photo_block.php'; ?>
 
 	<?php get_footer(); ?>
+

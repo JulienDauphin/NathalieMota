@@ -48,8 +48,6 @@ function register_my_menus() {
      $args = array(
        'post_type' => 'photo',
        'posts_per_page' => 8,
-       'orderby' => 'date',
-       'order' => 'DESC',
        'paged' => $_POST['paged'],
        
      );
