@@ -1,14 +1,15 @@
-// Get the modal
+// Recupère la modale via son ID
 var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
+// Recupère les 3 boutons qui ouvrent la modale
 var btn = document.getElementById("btnmodal");
 var btnd = document.getElementById("btnmodald");
+var btnb = document.getElementById("btnmodalburger");
 
-// Get the <span> element that closes the modal
+// Recupère la croix pour fermer la modale
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
+// Ouverture de la modale lors du clic sur les boutons
 btn.onclick = function() {
     modal.style.display = "block";
 }
@@ -17,13 +18,17 @@ btnd.onclick = function() {
     modal.style.display = "block";
 }
 
+btnb.onclick = function() {
+    modal.style.display = "block";
+}
 
-// When the user clicks on <span> (x), close the modal
+
+// Fermeture de la modale lors du clic sur la croix
 span.onclick = function() {
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// Fermeture de la modale lors du clic en dehors
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";

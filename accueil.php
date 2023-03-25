@@ -32,6 +32,7 @@ get_header(); ?>
               <div class="news_accueil">
                 <?php if (has_post_thumbnail()): ?>
                   <div class="thumbnail-accueil">
+                 
                     <a href="<?php the_permalink(); ?>">
                     <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 echo '<div class="produkt" style="background: url('. $url.'); background-size: cover">'; ?>
@@ -53,6 +54,6 @@ echo '<div class="produkt" style="background: url('. $url.'); background-size: c
 
 // Le haut de l'interface est ajouté avant le contenu
 include 'templates_parts/photo_block.php'; ?>
-
+<?php include 'templates_parts/lightbox.php';?>
 	<?php get_footer(); ?>
 

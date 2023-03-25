@@ -84,12 +84,12 @@
 select {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    padding: 8px;
+    padding: 7px;
     width: 272px;
 }
 
 option {
-    padding : 5px;
+    padding : 10px;
 }
 
 .btn__wrapper {
@@ -108,10 +108,95 @@ option {
     border-radius: 2px;
 }
 
-.container_thumbnail_block img {
+/* Bloc resultats */
+.container_thumbnail_recherche {
+    display: none;
+}
+
+
+.thumbnail-block, .thumbnail-block_new{
+    position: relative;
+  
+  width: 28vw;
+height: 28vw;
+}
+
+ 
+  .thumbnail-block:hover .open-lightbox {
+    display: block;
+  }
+
+  .thumbnail-block:hover .karina {
+    display: block;
+  }
+
+  .thumbnail-block:hover .titre {
+    display: block;
+  }
+
+  .thumbnail-block:hover .categories {
+    display: block;
+  }
+
+  .categories {
+    display: none;
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    z-index: 2;  
+    
+}
+
+.categories a{
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.titre {
+    display: none;
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    z-index: 2; 
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: white;
+}
+
+.titre p {
+    
+}
+
+.karina {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+  .open-lightbox {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: none;
+    position: absolute;
+    top: 11px;
+    right: 15px;
+    z-index: 2;
+  }
+
+.thumbnail-block img, .thumbnail-block_new img {
     object-fit: cover;
-    width: 540px;
-    height: 475px;
+    width: 100%;
+    height: 100%;
 }
 
 .footer-menu {
@@ -124,6 +209,10 @@ option {
 
 .menu-item-89, .menu-item-96 {
     margin-left:85px;
+}
+
+.menu-item-96 {
+    pointer-events: none;
 }
 
 .new_menu {
@@ -165,6 +254,76 @@ option {
 }
 
 
+/* Lightbox */
+
+.lightbox {
+    display: none; /* Hidden by default */
+    z-index: 10; /* Sit on top */
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color:rgba(0, 0, 0, 0.5); /* Fallback color */
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.carousel {
+    position: relative;
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  .carousel .item img {
+    max-width: 60vw;
+    max-height: 40vw;
+    margin: auto;
+    display: block;
+  }
+
+#close-lightbox:hover {
+    cursor: pointer;
+}
+
+#close-lightbox {
+    position: absolute;
+    top : 55px;
+    right : 65px;
+    color: white;
+   font-size: 22px;
+   background-color: transparent;
+   border: none;
+}
+
+.carousel .prev,
+.carousel .thenext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 40px;
+    color: #fff;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.carousel .prev:hover,
+.carousel .thenext:hover {
+    color: #888;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .thenext {
+    right: 10px;
+}
+
 
 
 /* Form */
@@ -179,7 +338,7 @@ option {
 
 .modal {
     display: none; /* Hidden by default */
-    z-index: 1; /* Sit on top */
+    z-index: 10; /* Sit on top */
     width: 100%;
     height: 100%;
     overflow: auto; /* Enable scroll if needed */
@@ -337,6 +496,7 @@ body{
 }
 
 .interet {
+    height: 97px ;
     margin : 0 144px;
     padding: 10px 0;
     display: flex;
@@ -352,8 +512,18 @@ body{
 
 .img_photo {
     max-width: 564px ;
+    position: relative;
 }
 
+.open-lightbox-perso {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
 
 .fleche_droite, .fleche_gauche {
     margin-top: 5px;
@@ -447,9 +617,7 @@ body{
 		margin-left: 40px;
 	}
 
-    .header-menu {
-        display: none;
-    }
+  
 
     .modal-content {
         width: 286px; 
@@ -507,3 +675,141 @@ body{
 
 }
 	
+@media (min-width: 700px) {
+    .burger_menu {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .new_menu {
+      display: none;
+    }
+    
+.logo_burger {
+    background-color: white;
+}
+
+    .burger_menu {
+      display: block;
+    }
+    
+    /* Styles pour l'icône du menu burger */
+    .burger_menu .burger_icon {
+      background-image: url('../images/burger.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 40px ;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: transparent;
+    }
+    
+  /* Styles pour le contenu du menu burger */
+  .burger_menu .burger_content {
+    display: none;
+    position: absolute;
+    top: -416px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: descendre 1s ease-in-out forwards;
+    width: 100%;
+    height: 416px;
+    background-color: red; /* Ajoutez une couleur de fond rouge */
+    z-index: 5;
+  }
+
+  #btnmodalburger {
+    z-index: 11;
+  }
+
+  .burger_content.remonter {
+        animation: remonter 1s ease-in-out forwards;
+      }
+  
+  
+      @keyframes remonter {
+        from {
+          top: 0px;
+        }
+        to {
+          top: -416px;
+        }
+      }
+
+  @keyframes descendre {
+    from {
+      top: -416px; /* départ de l'animation */
+    }
+    to {
+      top: 0px; /* position finale de la div */
+    }
+  }
+
+  .burger_menu .burger_content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrez le texte */
+    justify-content: center; /* Centrez le texte */
+  }
+  
+  .burger_menu .burger_content ul li {
+    margin: 10px 0;
+  }
+  
+  .burger_menu .burger_content ul li a {
+    display: block;
+    padding: 10px;
+    color: white; /* Définissez la couleur du texte en blanc */
+  }
+
+.top_burger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 32px 40px;
+    background-color: white;
+}
+
+.logo_burger {
+    width: 138px;
+    height: 9px;
+}
+
+.bouton_menu {
+    color: white;
+    background-color: transparent;
+    font-size: 24px;
+    margin: 40px 0 ;
+}
+
+.menu_burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header-menu a {
+    margin-left : 0 ;
+    font-size: 24px;
+}
+
+.burger_menu .burger_content ul li {
+    margin : 40px 0 18px 0 ;
+}
+
+.burger_icon_close {
+    font-size: 30px;
+    color: black;
+    border: none;
+    background-color: transparent;
+}
+
+}

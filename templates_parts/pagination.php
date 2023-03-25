@@ -6,7 +6,6 @@ function display_photos($catego, $formats) {
           'posts_per_page' => 8,
           'orderby' => 'date',
           'order' => 'DESC',
-          'paged' => 1,
           'tax_query' => [
 
             [
@@ -24,16 +23,17 @@ function display_photos($catego, $formats) {
         ?>
         <!-- //On vérifie si le résultat de la requête contient des articles -->
         <?php if ($query->have_posts()): ?>
-          <div class="container_thumbnail_block" id="container_thumbnail_block">
+          <div class="container_thumbnail_recherche" id="container_thumbnail_recherche">
             <!-- //On parcourt chacun des articles résultant de la requête -->
             <?php while ($query->have_posts()): ?>
               <?php $query->the_post(); ?>
-              <div class="news_block">
+              <div class="news_recherche">
                 <?php if (has_post_thumbnail()): ?>
-                  <div class="thumbnail-block">
+                  <div class="thumbnail-recherche">
                   <a href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail(array(550, 550)); ?>
                     </a>
+                    
                   </div>
                 <?php endif; ?>
               </div>

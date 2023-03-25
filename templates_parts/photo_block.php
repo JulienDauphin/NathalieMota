@@ -1,7 +1,7 @@
-
+<form method="get" id="filter-form">
 <?php $terms = get_terms('categorie');
  
- $select ="<section id='select_section'><div class='categories_select'><p>CATÉGORIES</p><select name='cat' id='cat' class='postform'>n";
+ $select ="<section id='select_section'><div class='categories_select'><p>CATÉGORIES</p><select name='cat-filter' id='cat-filter' class='postform'>n";
  $select.= "<option value='-1'>Choisir une catégorie</option>n";
 
  foreach($terms as $term){
@@ -17,7 +17,7 @@
 
 <?php $terms = get_terms('format');
  
- $select = "<div class='formats_select'><p>FORMATS</p><select name='for' id='for' class='postform'>n";
+ $select = "<div class='formats_select'><p>FORMATS</p><select name='for-filter' id='for-filter' class='postform'>n";
  $select.= "<option value='-1'>Choisir un format</option>n";
 
  foreach($terms as $term){
@@ -31,12 +31,13 @@
  echo $select;
 ?>
 <div class="vide">&nbsp</div>
-<div class='formats_select'><p>TRIER PAR</p><select name='for' id='for' class='postform'>n";
+<div class='formats_select'><p>TRIER PAR</p><select name='for-date' id='for-date' class='postform'>n";
  <option value='-1'>Trier les photos</option>
  <option value='0'>Nouveautés</option>
- <option value='0'>Populaires</option>
- <option value='0'>Anciens</option>
- </select> </div> </section>
+ <option value='1'>Populaires</option>
+ <option value='2'>Anciens</option>
+ </select> </div> </section></form>
+ 
 
  
 
@@ -61,13 +62,22 @@
             <!-- //On parcourt chacun des articles résultant de la requête -->
             <?php while ($query->have_posts()): ?>
               <?php $query->the_post(); ?>
-              <div class="news_block">
+              <div class="news_block filter" data-category="<?php echo esc_attr(implode(',', wp_get_post_terms(get_the_ID(), 'categorie', array('fields' => 'slugs')))); ?>" data-format="<?php echo esc_attr(implode(',', wp_get_post_terms(get_the_ID(), 'format', array('fields' => 'slugs')))); ?>">
                 <?php if (has_post_thumbnail()): ?>
                   <div class="thumbnail-block">
                   <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail(array(550, 550)); ?>
+                    <?php the_post_thumbnail(); ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/karina.jpg
+                    " alt="karina" class="karina">
+                    
                     </a>
-                  </div>
+                    
+                    <p class="categories"><?php echo the_terms(get_the_ID(), 'categorie', false); ?></p>
+                    <p class="titre"><?php the_title(); ?></p>
+                    <button class="open-lightbox" id="open-lightbox">[  ]</button>
+  
+           
+                           </div>
                 <?php endif; ?>
               </div>
             <?php endwhile; ?>
@@ -82,34 +92,4 @@
 <div class="btn__wrapper">
   <a href="#!" class="btn btn__primary" id="load-more">Charger plus</a>
 </div>
-
-
-<script type="text/javascript"><!--
-let contentdiv = document.getElementById("container_thumbnail_block"); 
-let boutondiv = document.getElementById("load-more");
-   var dropdown = document.getElementById("for");
-   function onForChange() {
-       if ( dropdown.options[dropdown.selectedIndex].value != -1 ) {
-           $formats = dropdown.options[dropdown.selectedIndex].value;
-       }
-       contentdiv.style.display = "none";
-       boutondiv.style.display = "none";
-       console.log($formats);
-      
-   }
-   dropdown.onchange = onForChange;
-
-   var dropdowne = document.getElementById("cat");
-   function onCatChange() {
-       if ( dropdowne.options[dropdowne.selectedIndex].value != -1 ) {
-           $catego = dropdowne.options[dropdowne.selectedIndex].value;
-           console.log($catego);
-           contentdiv.style.display = "none";
-           boutondiv.style.display = "none";
-
-       }
-   }
-   
-   dropdowne.onchange = onCatChange;
---></script>
 

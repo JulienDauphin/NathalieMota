@@ -1,6 +1,6 @@
 let currentPage = 1;
 $('#load-more').on('click', function() {
-  currentPage++; // Do currentPage + 1, because we want to load the next page
+  currentPage++; // Ajout de 1 à la page
 
   $.ajax({
     type: 'POST',
@@ -12,6 +12,7 @@ $('#load-more').on('click', function() {
     },
     success: function (response) {
       $('.container_thumbnail_block').append(response);
+      $('head').append('<link rel="stylesheet" type="text/css" href="wp-content/themes/DauphinJulien/css/ajax.css?' + new Date().getTime() + '">');
       
     }
     
